@@ -1,0 +1,17 @@
+def check_url(url):
+    flags = []
+    for word in ["login", "verify", "banking", "secure", "update"]:
+        if word in url.lower():
+            flags.append(f"Suspicious word: '{word}'")
+    if len(url) > 75:
+        flags.append("Too long")
+    if "@" in url:
+        flags.append("Contains '@'")
+    print(f"\nURL: {url}")
+    if flags:
+        print(f" SUSPICIOUS: {flags}")
+    else:
+        print(" Clean")
+check_url("https://definitely-not-a-suspicious-site.badsite.com/login")
+check_url("https://google.com")
+check_url("https://bank.com/login@fakebank.com/login")

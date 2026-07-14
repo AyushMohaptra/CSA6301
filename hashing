@@ -1,0 +1,9 @@
+import hashlib
+with open("text.txt", "rb") as f:
+    file_hash = hashlib.sha256(f.read()).hexdigest()
+    print(file_hash)
+trusted_hash =input()
+if file_hash == trusted_hash:
+  print("SAFE")
+else:
+  print("TAMPERED")
